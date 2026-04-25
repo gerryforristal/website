@@ -1,0 +1,12 @@
+{
+  "name": "gerryforristal-website",
+  "version": "1.0.0",
+  "description": "Gerry Forristal personal website",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

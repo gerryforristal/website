@@ -1,0 +1,72 @@
+# Decap CMS Configuration
+# gerryforristal.co.uk
+#
+# SETUP REQUIRED (one-time, before going live):
+# 1. Go to github.com/settings/developers → OAuth Apps → New OAuth App
+# 2. Application name: Gerry Forristal Website CMS
+# 3. Homepage URL: https://gerryforristal.co.uk
+# 4. Authorization callback URL: https://gerryforristal.co.uk/admin/
+# 5. Click "Register application" and copy the Client ID
+# 6. Replace YOUR_GITHUB_OAUTH_APP_CLIENT_ID below with that Client ID
+# 7. Save and push — Decap CMS will handle the rest via PKCE (no backend needed)
+#
+# To log in: go to gerryforristal.co.uk/admin and sign in with your GitHub account.
+
+backend:
+  name: github
+  repo: gerryforristal/gerryforristal-website
+  branch: main
+  auth_type: pkce
+  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+
+media_folder: src/assets/images/uploads
+public_folder: /assets/images/uploads
+
+collections:
+  - name: sessions
+    label: Workshop Sessions
+    label_singular: Workshop Session
+    folder: src/sessions
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{location}} — {{date}}"
+    fields:
+      - label: Workshop Title
+        name: title
+        widget: string
+        hint: "e.g. The Trust Triad: Why Buyers Hesitate and How to Remove the Friction"
+
+      - label: Date
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "DD MMMM YYYY"
+        time_format: false
+
+      - label: Location
+        name: location
+        widget: string
+        hint: "e.g. Clockwise, Edinburgh"
+
+      - label: Host Organisation
+        name: host
+        widget: string
+        required: false
+        hint: "e.g. Clockwise"
+
+      - label: Short Description
+        name: description
+        widget: text
+        required: false
+        hint: "One or two sentences shown beneath the session title."
+
+      - label: Booking Link
+        name: booking_link
+        widget: string
+        hint: "Full Eventbrite or Luma URL for this session."
+
+      - label: Image
+        name: image
+        widget: image
+        required: false
+        hint: "Optional. If supplied, shown alongside the session listing."

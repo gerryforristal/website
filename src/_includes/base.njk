@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | Gerry Forristal{% else %}Gerry Forristal | Buyer Behaviour &amp; Sales Process Design{% endif %}</title>
+  <meta name="description" content="{{ description or 'Gerry Forristal — buyer behaviour and sales process design consultant, Edinburgh.' }}">
+  <link rel="icon" href="/assets/images/g-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Cloudflare Web Analytics: replace YOUR_TOKEN below once Cloudflare Pages is connected -->
+  <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-brand" aria-label="Gerry Forristal — home">
+        <img src="/assets/images/g-logo.svg" alt="" width="36" height="36" aria-hidden="true">
+        <span class="nav-wordmark">Gerry Forristal</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} aria-current="page"{% endif %}>Why Buyers Hesitate</a></li>
+        <li><a href="/workshop/"{% if page.url == "/workshop/" %} aria-current="page"{% endif %}>The Workshop</a></li>
+        <li><a href="/working-with-me/"{% if page.url == "/working-with-me/" %} aria-current="page"{% endif %}>Working With Me</a></li>
+        <li><a href="/speaking/"{% if page.url == "/speaking/" %} aria-current="page"{% endif %}>Book Me to Speak</a></li>
+        <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/contact/"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Gerry Forristal</span>
+      <a href="https://www.linkedin.com/in/gerryforristal/" class="footer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/privacy/" class="footer-privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
