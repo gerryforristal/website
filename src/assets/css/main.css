@@ -24,7 +24,7 @@
 
 /* --- Reset ------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 18px; scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   font-weight: 300;
@@ -86,7 +86,7 @@ h1, h2, h3, h4 {
 
 .nav-links a {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 0.9rem;
   font-weight: 300;
   color: var(--muted);
   text-decoration: none;
@@ -133,7 +133,7 @@ h1, h2, h3, h4 {
 .footer-linkedin,
 .footer-privacy {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 0.85rem;
   font-weight: 300;
   color: var(--muted);
   text-decoration: none;
@@ -183,7 +183,7 @@ h1, h2, h3, h4 {
 .label {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--orange);
   letter-spacing: 0.12em;
@@ -194,7 +194,7 @@ h1, h2, h3, h4 {
 .section-label {
   display: block;
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--orange);
   letter-spacing: 0.12em;
@@ -224,7 +224,7 @@ h1, h2, h3, h4 {
 
 .eyebrow-text {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--orange);
   letter-spacing: 0.14em;
@@ -374,7 +374,7 @@ h1, h2, h3, h4 {
 
 .outcomes__item p {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.7;
   color: var(--dark);
@@ -411,7 +411,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: 1.0625rem;
+  font-size: 1.15rem;
   color: rgba(255,255,255,1);
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -419,7 +419,7 @@ h1, h2, h3, h4 {
 
 .testimonials__card blockquote footer {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 0.9rem;
   font-weight: 500;
   color: rgba(255,255,255,0.5);
   letter-spacing: 0.1em;
@@ -586,7 +586,7 @@ h1, h2, h3, h4 {
 .stage-label {
   display: block;
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--orange);
   letter-spacing: 0.12em;
