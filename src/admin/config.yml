@@ -17,7 +17,7 @@ backend:
   repo: gerryforristal/website
   branch: main
   auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23liOKW2jV7n5KphTd
 
 media_folder: src/assets/images/uploads
 public_folder: /assets/images/uploads
