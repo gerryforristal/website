@@ -1,35 +1,82 @@
 ---
 title: Privacy Policy
-description: Privacy policy for gerryforristal.co.uk — a simple, plain English explanation of how this site handles your information.
+description: Privacy policy for gerryforristal.co.uk
 layout: base.njk
 permalink: /privacy/
 ---
 
-<div class="page-header">
-  <h1>Privacy Policy</h1>
-</div>
+{% block pageStyles %}
+<style>
+  /* CONTENT */
+  .s-content { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 6rem; }
+  .content-grid { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
 
-<div class="prose">
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #1a1a1a; line-height: 1.25; position: sticky; top: 5rem; }
 
-  <h2>Who this is</h2>
-  <p>This website is operated by Gerry Forristal, a sole trader based in Edinburgh, Scotland. If you have any questions about how your information is handled, you can contact me at <a href="mailto:gerry@gerryforristal.co.uk">gerry@gerryforristal.co.uk</a>.</p>
+  .policy-body { max-width: 680px; }
+  .policy-section { margin-bottom: 2.5rem; }
+  .policy-section:last-child { margin-bottom: 0; }
+  .policy-heading { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #E8601C; margin-bottom: 0.75rem; }
+  .policy-body p { font-size: 1rem; line-height: 1.85; color: #444444; margin-bottom: 1rem; }
+  .policy-body p:last-child { margin-bottom: 0; }
+  .policy-updated { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; color: #777777; margin-bottom: 3rem; }
 
-  <h2>What information this site collects</h2>
-  <p>This site collects only what you choose to send through the contact form: your name, email address, and the message you write. That information is sent directly to me by email. It is not stored anywhere else, not shared with third parties, and not used for marketing unless you have asked me to be in touch.</p>
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .page-title { position: static; }
+  }
+</style>
+{% endblock %}
 
-  <h2>Cookies and tracking</h2>
-  <p>This site does not use cookies. There are no tracking pixels, no third-party advertising networks, and no retargeting of any kind.</p>
-  <p>This site uses Cloudflare Web Analytics to understand how many people visit and which pages they read. Cloudflare Web Analytics is cookieless and does not collect any personal data. It cannot identify individual visitors. No data is shared with advertising platforms.</p>
+<div class="s-content">
+  <div class="wrap">
+    <div class="content-grid">
 
-  <h2>Third-party services</h2>
-  <p>The contact form uses Web3Forms to deliver messages to my email inbox. Web3Forms receives your name, email address, and message in order to forward them. Their privacy policy is available at web3forms.com. No data is retained by them beyond what is necessary to deliver the message.</p>
-  <p>This site is hosted on Cloudflare Pages. Cloudflare's infrastructure may log basic technical information such as IP addresses for security purposes. Cloudflare's privacy policy is available at cloudflare.com.</p>
+      <div class="page-title">Privacy Policy</div>
 
-  <h2>Your rights</h2>
-  <p>Under UK GDPR, you have the right to ask what personal information I hold about you, to request that it be corrected or deleted, and to withdraw consent at any time. To exercise any of these rights, contact me at <a href="mailto:gerry@gerryforristal.co.uk">gerry@gerryforristal.co.uk</a>.</p>
+      <div class="policy-body">
 
-  <h2>Changes to this policy</h2>
-  <p>If anything here changes, this page will be updated. The date of the most recent revision is shown below.</p>
-  <p>Last updated: April 2026</p>
+        <p class="policy-updated">Last updated: April 2026</p>
 
+        <div class="policy-section">
+          <p>This website is operated by Gerry Forristal, a sole trader based in Edinburgh. This policy explains what information is collected when you visit gerryforristal.co.uk and how it is used.</p>
+          <p>The short version: this site does not use cookies, does not track you across the web, and does not sell or share your information with anyone.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Information you provide</div>
+          <p>If you use the contact form on this site, you provide your name, email address, and a message. This information is sent directly to gerry@gerryforristal.co.uk and used only to respond to your enquiry. It is not stored on this website, not added to any mailing list, and not shared with any third party.</p>
+          <p>Form submissions are processed via Formspree, a form handling service. Formspree&#8217;s own privacy policy applies to the brief period during which your submission passes through their service. You can read it at formspree.io/legal/privacy-policy.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Analytics</div>
+          <p>This site uses Cloudflare Web Analytics to understand how many people visit and which pages they read. Cloudflare Web Analytics does not use cookies and does not collect any personal data. It does not track you across websites and is fully compliant with GDPR without requiring a cookie banner. No data about individual visitors is stored or accessible.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Cookies</div>
+          <p>This site does not use cookies. No cookie banner is shown because none is needed.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Third-party services</div>
+          <p>This site loads fonts from Google Fonts. Google may log the request made to their servers when a font is loaded. No personal information from this site is passed to Google. You can read Google&#8217;s privacy policy at policies.google.com/privacy.</p>
+          <p>Pages on this site may link to external websites, including LinkedIn. This privacy policy applies only to gerryforristal.co.uk. External sites have their own policies.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Your rights</div>
+          <p>Under UK GDPR you have the right to request access to, correction of, or deletion of any personal information held about you. Given the limited data collected by this site, the only personal information that may be held is any message you have sent via the contact form, retained in email correspondence.</p>
+          <p>To exercise any of these rights, or if you have any questions about this policy, get in touch at gerry@gerryforristal.co.uk.</p>
+        </div>
+
+        <div class="policy-section">
+          <div class="policy-heading">Changes to this policy</div>
+          <p>If this policy changes, the updated version will be published on this page with a revised date. No significant changes are anticipated given the minimal data handling on this site.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

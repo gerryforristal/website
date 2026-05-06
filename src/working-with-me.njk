@@ -1,62 +1,208 @@
 ---
 title: Working With Me
-description: A documented, bespoke sales process built around how your buyers actually make decisions. Three stages, starting with the Sales Process Assessment.
+description: A documented, bespoke sales process built around how your buyers actually make decisions.
 layout: base.njk
 permalink: /working-with-me/
 ---
 
-<div class="page-header">
-  <h1>A documented, bespoke sales process built around how your buyers actually make decisions.</h1>
-</div>
+{% block pageStyles %}
+<style>
+  /* HERO */
+  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 3rem; }
+  .s-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 400; font-style: italic; line-height: 1.15; color: #1a1a1a; margin-bottom: 1.5rem; }
+  .s-hero h1 span.orange { color: #E8601C; }
+  .s-hero p { font-size: 1.05rem; line-height: 1.85; color: #444444; }
 
-<div class="page-body">
-  <p>If you have read this far, you already have a sense of what this work is about. This page explains how it actually happens.</p>
-</div>
+  /* PHOTOGRAPHY */
+  .s-photo { background: rgb(255,255,255); padding-bottom: 0; }
+  .photo-crop { width: 100%; height: 420px; overflow: hidden; }
+  .photo-crop img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
-<div class="page-photo">
-  <img src="/assets/images/EK4A0009.jpg" alt="Workshop session, participants engaged in discussion">
-</div>
+  /* TIMELINE — orange */
+  .s-timeline { background: #E8601C; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .timeline-wrap { position: relative; }
+  .timeline-track { position: relative; height: 2px; background: rgba(255,255,255,0.2); }
+  .timeline-fill { position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: rgba(255,255,255,0.4); }
+  .timeline-nodes { display: flex; justify-content: space-between; margin-top: -9px; }
+  .t-node { display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .t-dot { width: 16px; height: 16px; border-radius: 50%; background: rgb(255,255,255); border: 2px solid #E8601C; outline: 1.5px solid rgba(255,255,255,0.5); flex-shrink: 0; margin-bottom: 0.6rem; }
+  .t-label { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.85); text-align: center; max-width: 68px; line-height: 1.4; }
 
-<div class="stages">
+  /* STAGES SHARED */
+  .stage-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .stage-grid { display: grid; grid-template-columns: 260px 1fr; gap: 0; align-items: start; }
+  .stage-left { padding-right: 3rem; border-right: 0.5px solid #e8e8e8; }
+  .stage-left-blue { padding-right: 3rem; border-right: 0.5px solid #c8d8f0; }
+  .stage-right { padding-left: 3rem; }
+  .stage-num { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #23418e; margin-bottom: 0.5rem; }
+  .stage-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-style: italic; font-weight: 400; color: #E8601C; line-height: 1.3; margin-bottom: 1.5rem; }
+  .milestone { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.6rem; }
+  .m-dot { width: 8px; height: 8px; border-radius: 50%; background: #E8601C; flex-shrink: 0; margin-top: 0.45rem; }
+  .m-label { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; color: #444444; line-height: 1.5; }
 
-  <div class="stage">
-    <span class="stage-label stage-label--navy">Stage One</span>
-    <h2>The Sales Process Assessment</h2>
-    <p>The Sales Process Assessment is a comprehensive mapping and analysis of your current sales process. Where it is creating hesitation for buyers. Where conversations are losing momentum. Where the process is working with your buyers and where it is working against them.</p>
-    <p>The output is a Business Analysis Summary and Strategic Recommendations report. A concrete, specific piece of work that gives you a clear picture of what is actually happening on the buyer's side of your sales conversations, and what needs to change.</p>
-    <p>The assessment is &#163;1,250. If you decide to proceed to the full engagement, that amount is offset against the total.</p>
-    <p>We meet, in person or online, to discuss the findings. At that point you have everything you need to make an informed decision about whether to proceed. There is no pressure in either direction. The report stands on its own.</p>
+  /* KEY STATEMENT */
+  .key-statement { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #1a1a1a; line-height: 1.4; margin-bottom: 1.5rem; }
+
+  /* DETAIL CARDS */
+  .detail-card { border: 0.5px solid #e8e8e8; padding: 1.1rem 1.25rem; margin-bottom: 0.75rem; background: rgb(255,255,255); }
+  .detail-card:last-child { margin-bottom: 0; }
+  .card-tag { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #E8601C; margin-bottom: 0.4rem; }
+  .card-body { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: #444444; }
+
+  /* STAGE BACKGROUNDS */
+  .s-stage-one { background: rgb(255,255,255); }
+  .s-stage-two { background: #f2f8ff; }
+  .s-stage-three { background: rgb(255,255,255); }
+
+  /* CTA */
+  .s-cta { background: #f2f8ff; border-top: 0.5px solid #ddeaf8; padding-top: 3.5rem; padding-bottom: 4.5rem; }
+  .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 400; font-style: normal; line-height: 1.3; color: #1a1a1a; margin-bottom: 1.75rem; max-width: 620px; }
+
+  @media (max-width: 900px) {
+    .photo-crop { height: 260px; }
+    .stage-grid { grid-template-columns: 1fr; }
+    .stage-left, .stage-left-blue { padding-right: 0; border-right: none; border-bottom: 0.5px solid #e8e8e8; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .stage-right { padding-left: 0; }
+    /* Timeline: vertical on mobile */
+    .timeline-track { display: none; }
+    .timeline-nodes { flex-direction: column; margin-top: 0; gap: 0; position: relative; }
+    .timeline-nodes::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: rgba(255,255,255,0.4); }
+    .t-node { flex-direction: row; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; flex: none; }
+    .t-dot { margin-bottom: 0; margin-top: 0.1rem; flex-shrink: 0; position: relative; z-index: 1; }
+    .t-label { text-align: left; max-width: none; }
+  }
+</style>
+{% endblock %}
+
+<div class="s-hero">
+  <div class="wrap">
+    <h1>A documented, bespoke sales process built around <span class="orange">how your buyers actually make decisions.</span></h1>
+    <p>If you have read this far, you already have a sense of what this work is about. This page explains how it actually happens.</p>
   </div>
-
 </div>
 
-<div class="section-blue">
-  <div class="section-blue-inner">
-    <div class="stage">
-      <span class="stage-label stage-label--navy">Stage Two</span>
-      <h2>The Trust Triad Workshop</h2>
-      <p>If you decide to proceed, the next step is the Trust Triad Workshop, delivered to your leadership or sales team.</p>
-      <p>This is where the findings from the assessment come to life. Your team learns the underlying principles of the approach and understands how they will be applied to your specific sales process. The workshop builds on what already works in your business, and gives your team the framework and language they will need for what comes next.</p>
-      <p>The workshop is typically delivered in person, though a virtual format is available where that works better. Duration is 2.5 hours.</p>
+<div class="s-photo">
+  <div class="wrap">
+    <figure>
+      <div class="photo-crop">
+        <img src="/assets/images/EK4A0009.jpg" alt="Gerry Forristal working with a client team">
+      </div>
+      <figcaption class="photo-credit">Photography: <a href="https://www.MKJPhotography.co.uk" target="_blank" rel="noopener">www.MKJPhotography.co.uk</a></figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="s-timeline">
+  <div class="wrap">
+    <div class="timeline-wrap">
+      <div class="timeline-track">
+        <div class="timeline-fill"></div>
+      </div>
+      <div class="timeline-nodes">
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Sales Process Assessment</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Business Analysis Report</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Workshop</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">First Draft Sales Process</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Day 30 Implementation Call</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Day 60 Check-in Call</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">Day 90 Check-in Call</div></div>
+        <div class="t-node"><div class="t-dot"></div><div class="t-label">New Sales Process Deployed</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="stages">
-
-  <div class="stage">
-    <span class="stage-label stage-label--navy">Stage Three</span>
-    <h2>Sales System Design and Implementation</h2>
-    <p>This is the core of the engagement. A bespoke, documented sales process designed around the findings of the assessment and built for how your buyers actually think and make decisions.</p>
-    <p>The implementation runs across 90 days.</p>
-    <p>By day 30, the first draft of your sales process manual is delivered to your senior management team. A call is scheduled for sign off, and an implementation call is booked to walk the team through deployment.</p>
-    <p>At day 60, a check-in call covers how implementation is going in practice. Any challenges, adjustments, or amendments are addressed.</p>
-    <p>At day 90, a final check-in gathers feedback, captures early wins, and agrees any final amendments. On sign off, the final documentation is delivered along with a structured Q&amp;A that captures your experience of the process and the implementation.</p>
+<div class="s-stage-one">
+  <div class="wrap">
+    <div class="stage-section">
+      <div class="stage-grid">
+        <div class="stage-left">
+          <div class="stage-num">Stage One</div>
+          <div class="stage-title">The Sales Process Assessment</div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Sales Process Assessment</div></div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Business Analysis Report</div></div>
+        </div>
+        <div class="stage-right">
+          <p class="key-statement">Before anything is designed, we need to understand what is actually happening on the buyer&#8217;s side of your sales conversations.</p>
+          <div class="detail-card">
+            <div class="card-tag">Assessment</div>
+            <p class="card-body">A comprehensive mapping and analysis of your current sales process. Where it is creating hesitation. Where conversations are losing momentum.</p>
+          </div>
+          <div class="detail-card">
+            <div class="card-tag">Report</div>
+            <p class="card-body">The Business Analysis Summary and Strategic Recommendations report. Concrete, specific, and genuinely useful as a standalone piece of work regardless of what follows.</p>
+          </div>
+          <div class="detail-card">
+            <div class="card-tag">Decision</div>
+            <p class="card-body">We meet to discuss the findings. At that point you have everything you need to decide whether to proceed. There is no pressure in either direction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
 
-<div class="page-cta">
-  <p>The conversation starts with the assessment. If you would like to understand how it applies to your business, get in touch.</p>
-  <a href="/contact/" class="btn btn--primary">Get in touch</a>
+<div class="s-stage-two">
+  <div class="wrap">
+    <div class="stage-section">
+      <div class="stage-grid">
+        <div class="stage-left-blue">
+          <div class="stage-num">Stage Two</div>
+          <div class="stage-title">The Trust Triad Workshop</div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Workshop</div></div>
+        </div>
+        <div class="stage-right">
+          <p class="key-statement">This is where the findings from the assessment come to life for your team.</p>
+          <div class="detail-card">
+            <div class="card-tag">Format</div>
+            <p class="card-body">Delivered to your leadership or sales team. Typically in person, though a virtual format is available. Duration is 2.5 hours.</p>
+          </div>
+          <div class="detail-card">
+            <div class="card-tag">Outcome</div>
+            <p class="card-body">Your team understands the underlying principles and how they will be applied to your specific process. They leave with the framework and language they need for what comes next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-stage-three">
+  <div class="wrap">
+    <div class="stage-section">
+      <div class="stage-grid">
+        <div class="stage-left">
+          <div class="stage-num">Stage Three</div>
+          <div class="stage-title">Sales System Design and Implementation</div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">First Draft Sales Process</div></div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Day 30 Implementation Call</div></div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Day 60 Check-in Call</div></div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">Day 90 Check-in Call</div></div>
+          <div class="milestone"><div class="m-dot"></div><div class="m-label">New Sales Process Deployed</div></div>
+        </div>
+        <div class="stage-right">
+          <p class="key-statement">A bespoke, documented sales process built for how your buyers actually think and make decisions.</p>
+          <div class="detail-card">
+            <div class="card-tag">Day 30</div>
+            <p class="card-body">First draft of your sales process manual delivered to your senior management team. Sign off call and implementation call scheduled.</p>
+          </div>
+          <div class="detail-card">
+            <div class="card-tag">Day 60</div>
+            <p class="card-body">Check-in call to review how implementation is going in practice. Any challenges, adjustments, or amendments addressed.</p>
+          </div>
+          <div class="detail-card">
+            <div class="card-tag">Day 90</div>
+            <p class="card-body">Final check-in. Early wins captured, final amendments agreed, documentation signed off. Your new sales process is fully deployed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-cta">
+  <div class="wrap">
+    <p class="cta-h2">The conversation starts with the assessment. If you would like to understand how it applies to your business, get in touch.</p>
+    <a href="/contact/" class="btn">Get in touch</a>
+  </div>
 </div>

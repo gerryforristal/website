@@ -1,47 +1,167 @@
 ---
 title: Book Me to Speak
-description: A session your members will actually find useful. The Trust Triad Workshop and one-hour talk on buyer behaviour and sales process design.
+description: A session your members will actually find useful. Buyer behaviour and sales process design for business communities.
 layout: base.njk
 permalink: /speaking/
 ---
 
-<div class="page-header">
-  <h1>A session your members will actually find useful.</h1>
-</div>
+{% block pageStyles %}
+<style>
+  /* HERO */
+  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 3rem; }
+  .hero-grid { display: grid; grid-template-columns: 2fr 1px 3fr; gap: 0; align-items: center; }
+  .hero-h1-col { padding-right: 3rem; }
+  .hero-h1-col h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 400; font-style: italic; line-height: 1.15; color: #1a1a1a; }
+  .hero-h1-col h1 span.orange { color: #E8601C; }
+  .hero-orange-rule { background: #E8601C; align-self: stretch; opacity: 0.4; }
+  .hero-body-col { padding-left: 3rem; font-size: 1.05rem; line-height: 1.85; color: #444444; }
 
-<div class="page-body">
-  <p>If you programme events for business owners, founders, or leadership teams, this page is for you.</p>
-  <p>The organisations I work with are looking for something specific: a session that delivers genuine, practical value to their members. Not a promotional talk. Not a motivational keynote. A properly structured, research-grounded exploration of why buyers behave the way they do, and what businesses can do about it.</p>
-  <p>Members leave with ideas they can apply immediately.</p>
-</div>
+  /* PHOTOGRAPHY */
+  .s-photo { background: rgb(255,255,255); padding-bottom: 0; }
+  .photo-crop { width: 100%; height: 420px; overflow: hidden; }
+  .photo-crop img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
 
-<div class="page-photo">
-  <img src="/assets/images/EK4A9932.jpg" alt="Gerry Forristal presenting, 'RESONATE' on screen">
-</div>
+  /* OFFERINGS — light blue */
+  .s-offerings { background: #f2f8ff; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .offerings-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #E8601C; line-height: 1.25; margin-bottom: 2rem; }
+  .offering-primary { border: 1px solid #E8601C; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; background: rgb(255,255,255); }
+  .secondary-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: start; }
+  .secondary-col-left { padding-right: 1.5rem; }
+  .secondary-col-right { padding-left: 1.5rem; }
+  .secondary-divider { background: #e8e8e8; align-self: stretch; }
+  .offering-secondary { border: 0.5px solid #e8e8e8; padding: 1.1rem 1.25rem; background: rgb(255,255,255); height: 100%; }
+  .offering-tag { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #23418e; margin-bottom: 0.4rem; }
+  .offering-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2vw, 1.6rem); font-style: italic; font-weight: 400; color: #E8601C; line-height: 1.3; margin-bottom: 0.5rem; }
+  .offering-body { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: #444444; }
 
-<div class="page-body">
-  <span class="section-label">Workshop</span>
-  <h2>The Trust Triad Workshop &mdash; 2.5 hours</h2>
-  <p>Why Buyers Hesitate and How to Remove the Friction. A structured exploration of buyer behaviour, the outside-in principle, and the Trust Triad framework. Suitable for member events, away days, and leadership programmes. Participants leave with a practical understanding of why their sales conversations go the way they do, and a framework for making them work better.</p>
+  /* WHO THIS IS FOR — orange */
+  .s-who { background: #E8601C; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .who-grid { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
+  .who-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-style: italic; font-weight: 400; color: rgb(255,255,255); line-height: 1.2; }
+  .who-list { list-style: none; }
+  .who-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.9); }
+  .who-list li:last-child { margin-bottom: 0; }
+  .who-dot { width: 7px; height: 7px; border-radius: 50%; background: rgb(255,255,255); flex-shrink: 0; margin-top: 0.55rem; }
 
-  <span class="section-label">Talk</span>
-  <h2>The One-Hour Talk</h2>
-  <p>A condensed version of the workshop, adapted for keynote slots and conference sessions. The same core ideas, the same research foundation, delivered in a format that works for shorter event programmes.</p>
+  /* TESTIMONIALS — navy */
+  .s-testimonials { background: #23418e; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; align-items: start; }
+  .testimonial-card blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; font-weight: 400; line-height: 1.6; color: rgb(255,255,255); margin-bottom: 0.75rem; border: none; padding: 0; }
+  .testimonial-card cite { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.5); font-style: normal; }
 
-  <span class="section-label">Bespoke</span>
-  <h2>Bespoke Sessions</h2>
-  <p>For organisations with specific requirements, I am happy to discuss a session scoped around your members' needs. Get in touch and we can work out the right format.</p>
-</div>
+  /* CTA */
+  .s-cta { background: #f2f8ff; border-top: 0.5px solid #ddeaf8; padding-top: 3.5rem; padding-bottom: 4.5rem; }
+  .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 400; font-style: normal; line-height: 1.3; color: #1a1a1a; margin-bottom: 1.75rem; max-width: 620px; }
 
-<div class="section-blue">
-  <div class="section-blue-inner">
-    <span class="section-label">Audience</span>
-    <h2>Who this is for</h2>
-    <p>I work with co-working spaces and business clubs, Chambers of Commerce, peer advisory groups, professional membership organisations, and accountancy and law firms running events for their business owner clients. If you bring together founders and business owners and want to offer them something genuinely useful on buyer behaviour and sales process design, get in touch.</p>
+  @media (max-width: 900px) {
+    .photo-crop { height: 280px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-orange-rule { display: none; }
+    .hero-h1-col { padding-right: 0; margin-bottom: 1.5rem; }
+    .hero-body-col { padding-left: 0; }
+    .secondary-grid { grid-template-columns: 1fr; }
+    .secondary-divider { display: none; }
+    .secondary-col-left { padding-right: 0; margin-bottom: 0.75rem; }
+    .secondary-col-right { padding-left: 0; }
+    .who-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+{% endblock %}
+
+<div class="s-hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-h1-col">
+        <h1>A session your members will <span class="orange">actually find useful.</span></h1>
+      </div>
+      <div class="hero-orange-rule"></div>
+      <div class="hero-body-col">
+        <p>If you programme events for business owners, founders, or leadership teams, this page is for you. The organisations I work with are looking for something specific: a session that delivers genuine, practical value to their members. Not a promotional talk. Not a motivational keynote. A properly structured, research-grounded exploration of why buyers behave the way they do, and what businesses can do about it.</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="page-cta">
-  <p>To discuss dates, format, and fit, get in touch.</p>
-  <a href="/contact/" class="btn btn--primary">Get in touch</a>
+<div class="s-photo">
+  <div class="wrap">
+    <figure>
+      <div class="photo-crop">
+        <img src="/assets/images/EK4A9932.jpg" alt="Gerry Forristal presenting">
+      </div>
+      <figcaption class="photo-credit">Photography: <a href="https://www.MKJPhotography.co.uk" target="_blank" rel="noopener">www.MKJPhotography.co.uk</a></figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="s-offerings">
+  <div class="wrap">
+    <div class="offerings-headline">What I offer</div>
+    <div class="offering-primary">
+      <div class="offering-tag">Primary &middot; 2.5 hours</div>
+      <div class="offering-title">The Trust Triad Workshop</div>
+      <p class="offering-body">Why Buyers Hesitate and How to Remove the Friction. A structured exploration of buyer behaviour, the outside-in principle, and the Trust Triad framework. Suitable for member events, away days, and leadership programmes. Participants leave with a practical framework they can apply to their own sales conversations immediately.</p>
+    </div>
+    <div class="secondary-grid">
+      <div class="secondary-col-left">
+        <div class="offering-secondary">
+          <div class="offering-tag">One hour</div>
+          <div class="offering-title">The Talk</div>
+          <p class="offering-body">A condensed version of the workshop, adapted for keynote slots and conference sessions. The same core ideas, the same research foundation, delivered in a format that works for shorter event programmes.</p>
+        </div>
+      </div>
+      <div class="secondary-divider"></div>
+      <div class="secondary-col-right">
+        <div class="offering-secondary">
+          <div class="offering-tag">Bespoke</div>
+          <div class="offering-title">Scoped in conversation</div>
+          <p class="offering-body">For organisations with specific requirements. Get in touch and we can work out the right format for your members and programme.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-who">
+  <div class="wrap">
+    <div class="who-grid">
+      <div class="who-headline">Who this is for</div>
+      <div>
+        <ul class="who-list">
+          <li><div class="who-dot"></div><span>Co-working spaces and business clubs</span></li>
+          <li><div class="who-dot"></div><span>Chambers of Commerce</span></li>
+          <li><div class="who-dot"></div><span>Peer advisory and CEO roundtable groups</span></li>
+          <li><div class="who-dot"></div><span>Professional membership organisations</span></li>
+          <li><div class="who-dot"></div><span>Accountancy and law firms running events for their business owner clients</span></li>
+          <li><div class="who-dot"></div><span>Conference and event organisers</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-testimonials">
+  <div class="wrap">
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <blockquote>&#8220;The Trust Triad workshop was so good, Gerry will be sharing it with my team later in the year.&#8221;</blockquote>
+        <cite>Angela Cooper, Director, GYEON UK Ltd</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>&#8220;Our sales conversion rate has risen from 36% to 51%.&#8221;</blockquote>
+        <cite>Paul Nolan, Senior Sales Manager</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>&#8220;32% enquiry conversion increase. Our best sales year to date.&#8221;</blockquote>
+        <cite>Martin Johnson, Co-Founder, Latin Routes</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-cta">
+  <div class="wrap">
+    <p class="cta-h2">To discuss dates, format, and fit, get in touch.</p>
+    <a href="/contact/" class="btn">Get in touch</a>
+  </div>
 </div>

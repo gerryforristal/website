@@ -5,48 +5,119 @@ layout: base.njk
 permalink: /contact/
 ---
 
-<div class="page-header">
-  <h1>If something here has made you think differently about your own process, the conversation starts here.</h1>
+{% block pageStyles %}
+<style>
+  /* HERO */
+  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 3.5rem; }
+  .s-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 400; font-style: italic; line-height: 1.15; color: #1a1a1a; margin-bottom: 1.5rem; max-width: 820px; }
+  .s-hero h1 span.orange { color: #E8601C; }
+
+  /* FORM SECTION */
+  .s-form { background: #f2f8ff; padding-top: 4rem; padding-bottom: 5rem; border-top: 0.5px solid #ddeaf8; }
+  .form-grid { display: grid; grid-template-columns: 1fr 300px; gap: 6rem; align-items: start; }
+
+  /* FORM FIELDS */
+  .form-group { margin-bottom: 1.75rem; }
+  .form-group:last-of-type { margin-bottom: 2rem; }
+  .form-label { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #777777; margin-bottom: 0.5rem; }
+  .form-input, .form-textarea { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 300; color: #1a1a1a; background: rgb(255,255,255); border: 0.5px solid #d0d0d0; padding: 0.75rem 1rem; outline: none; transition: border-color 0.18s; -webkit-appearance: none; border-radius: 0; }
+  .form-input:focus, .form-textarea:focus { border-color: #E8601C; }
+  .form-textarea { resize: vertical; min-height: 160px; line-height: 1.7; }
+  .form-submit { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; color: rgb(255,255,255); background: #E8601C; border: none; padding: 0.8rem 1.85rem; cursor: pointer; transition: opacity 0.18s; -webkit-appearance: none; border-radius: 0; }
+  .form-submit:hover { opacity: 0.88; }
+
+  /* SUCCESS STATE */
+  .form-success { display: none; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: #1a1a1a; line-height: 1.6; padding: 2rem 0; }
+
+  /* ASIDE */
+  .contact-aside { padding-top: 0.25rem; }
+  .aside-label { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #777777; margin-bottom: 0.75rem; }
+  .linkedin-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 400; color: #E8601C; text-decoration: none; border-bottom: 0.5px solid #E8601C; padding-bottom: 0.1rem; transition: opacity 0.18s; }
+  .linkedin-link:hover { opacity: 0.7; }
+
+  @media (max-width: 900px) {
+    .form-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+  }
+</script>
+{% endblock %}
+
+<div class="s-hero">
+  <div class="wrap">
+    <h1>If something here has made you think differently about <span class="orange">your own process,</span> the conversation starts here.</h1>
+  </div>
 </div>
 
-<div class="contact-layout">
+<div class="s-form">
+  <div class="wrap">
+    <div class="form-grid">
 
-  <div class="contact-form">
-    <!--
-      SETUP REQUIRED: Sign up free at web3forms.com, enter gerry@gerryforristal.co.uk,
-      and replace YOUR_ACCESS_KEY below with the key they send you.
-    -->
-    <form action="https://api.web3forms.com/submit" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-      <input type="hidden" name="subject" value="New message from gerryforristal.co.uk">
-      <input type="hidden" name="from_name" value="Gerry Forristal Website">
-      <input type="checkbox" name="botcheck" style="display:none">
+      <div>
+        <!--
+          FORMSPREE SETUP (one-time, free):
+          1. Go to formspree.io and create a free account
+          2. Create a new form and copy your unique form endpoint URL
+          3. Replace YOUR_FORMSPREE_ENDPOINT below with that URL
+             e.g. https://formspree.io/f/abcdefgh
+          Submissions will arrive in gerry@gerryforristal.co.uk
+        -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xbdwkjov"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New message from gerryforristal.co.uk">
+          <input type="hidden" name="_next" value="">
 
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" autocomplete="name" required>
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send message</button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          Thank you. I will be in touch shortly.
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email" required>
+      <div class="contact-aside">
+        <p class="aside-label">Connect</p>
+        <a href="https://www.linkedin.com/in/gerryforristal/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </div>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn--primary">Send message</button>
-    </form>
+    </div>
   </div>
-
-  <aside class="contact-aside">
-    <p>Email</p>
-    <p><a href="mailto:gerry@gerryforristal.co.uk">gerry@gerryforristal.co.uk</a></p>
-
-    <p style="margin-top: 1.5rem;">LinkedIn</p>
-    <p><a href="https://www.linkedin.com/in/gerryforristal/" target="_blank" rel="noopener noreferrer">linkedin.com/in/gerryforristal</a></p>
-  </aside>
-
 </div>

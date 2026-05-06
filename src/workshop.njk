@@ -1,63 +1,169 @@
 ---
 title: The Trust Triad Workshop
-description: A structured, practical exploration of why buyers hesitate and how to remove the friction. Upcoming public sessions and bespoke workshop delivery.
+description: A structured, practical exploration of why buyers hesitate and what you can do about it.
 layout: base.njk
 permalink: /workshop/
 ---
 
-<div class="page-header">
-  <h1>Why buyers hesitate and how to remove the friction.</h1>
-</div>
+{% block pageStyles %}
+<style>
+  /* HERO */
+  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 3rem; }
+  p.eyebrow-label { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: #E8601C; letter-spacing: 0.01em; margin-bottom: 1rem; }
+  .s-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 400; font-style: italic; line-height: 1.15; color: #1a1a1a; margin-bottom: 1.5rem; }
+  .s-hero h1 span.orange { color: #E8601C; }
+  .s-hero .hero-body { font-size: 1.05rem; line-height: 1.85; color: #444444; margin-bottom: 2.5rem; }
+  .hero-photo { width: 100%; height: 420px; overflow: hidden; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
-<div class="page-body">
-  <p>The Trust Triad Workshop is a structured, practical exploration of why buyers hesitate and what you can do about it. Not theory for its own sake. A framework you can apply to your own sales conversations immediately.</p>
-  <p>Sessions are hosted by partner organisations across Edinburgh and beyond. If you want to experience the thinking before deciding whether to go further, this is the right place to start.</p>
-</div>
+  /* COVERS */
+  .s-covers { background: #f2f8ff; padding-top: 3rem; padding-bottom: 3rem; }
+  .covers-grid { display: grid; grid-template-columns: 300px 1fr 1px 1fr; gap: 0; align-items: start; }
+  .covers-grid .headline-col { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #E8601C; line-height: 1.25; padding-right: 3rem; }
+  .covers-grid .body-col-1 { padding-right: 3rem; }
+  .covers-grid .body-col-2 { padding-left: 3rem; }
+  .covers-grid .orange-rule { background: #E8601C; opacity: 0.4; align-self: stretch; }
+  .covers-grid p { font-size: 1rem; line-height: 1.85; color: #444444; margin-bottom: 1.1rem; }
+  .covers-grid p:last-child { margin-bottom: 0; }
 
-<div class="page-photo">
-  <img src="/assets/images/EK4A9928.jpg" alt="Gerry Forristal delivering the Trust Triad workshop, Trust Triad title slide visible">
-</div>
+  /* TRIAD INTRO */
+  .s-triad-intro { background: rgb(255,255,255); padding-top: 3rem; padding-bottom: 3rem; }
+  .triad-framing { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
+  .triad-framing .section-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #1a1a1a; line-height: 1.25; }
+  .triad-framing p { font-size: 1rem; line-height: 1.85; color: #444444; }
 
-<div class="page-body">
-  <span class="section-label">The workshop</span>
-  <h2>What the workshop covers</h2>
-  <p>In 2.5 hours, we work through:</p>
-  <p>Why buyers hesitate, and why the reason is almost never what businesses assume.</p>
-  <p>The outside-in principle: what your buyer is actually experiencing during your sales process, and why it matters.</p>
-  <p>The Trust Triad: the three elements that need to be present before a buyer feels safe to proceed. Qualification, credibility, and permission, and how they work together.</p>
-  <p>What changes when you design your process around how buyers actually think and make decisions.</p>
+  /* TRIAD ELEMENTS — orange */
+  .s-triad-elements { background: #E8601C; padding-top: 3rem; padding-bottom: 3rem; }
+  .triad-elements { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 0; align-items: start; }
+  .triad-col { padding: 0 2.5rem; }
+  .triad-col:first-child { padding-left: 0; }
+  .triad-col:last-child { padding-right: 0; }
+  .triad-col-rule { background: rgba(255,255,255,0.25); align-self: stretch; }
+  .triad-element-label { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.2vw, 1.9rem); font-style: italic; font-weight: 400; color: rgb(255,255,255); margin-bottom: 0.75rem; line-height: 1.2; }
+  .triad-col p { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.85); }
 
-  <span class="section-label">Outcomes</span>
-  <h2>What you leave with</h2>
-  <p>A clear understanding of why your sales conversations go the way they do, and a practical framework for making them work better. Plus the Micro-Permissions Guide and the PULSE+ Framework Explainer as reference resources.</p>
-</div>
+  /* SESSIONS */
+  .s-sessions { background: rgb(255,255,255); padding-top: 3rem; padding-bottom: 3rem; }
+  .sessions-grid { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
+  .sessions-grid .headline-col { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #1a1a1a; line-height: 1.25; }
+  .session-card { border: 0.5px solid #e8e8e8; padding: 1.5rem 1.75rem; margin-bottom: 1rem; }
+  .session-card:last-of-type { margin-bottom: 0; }
+  .session-date { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; color: #E8601C; margin-bottom: 0.4rem; }
+  .session-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; font-style: italic; color: #1a1a1a; line-height: 1.35; margin-bottom: 0.35rem; }
+  .session-location { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; color: #777777; margin-bottom: 1rem; }
+  .session-link { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; color: #E8601C; text-decoration: none; border-bottom: 0.5px solid #E8601C; padding-bottom: 0.1rem; transition: opacity 0.18s; }
+  .session-link:hover { opacity: 0.7; }
+  .sessions-empty { font-size: 1rem; line-height: 1.85; color: #444444; }
 
-<div class="sessions">
-  <span class="section-label">Sessions</span>
-  <h2>Upcoming sessions</h2>
+  /* CTA */
+  .s-cta { background: #f2f8ff; border-top: 0.5px solid #ddeaf8; padding-top: 3.5rem; padding-bottom: 4.5rem; }
+  .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 400; font-style: normal; line-height: 1.3; color: #1a1a1a; margin-bottom: 1.75rem; max-width: 620px; }
 
-  {% if collections.sessions.length > 0 %}
-    {% for session in collections.sessions %}
-      <div class="session-item">
-        <div class="session-date">{{ session.data.date | formatDate }}</div>
-        <div class="session-details">
-          <h3>{{ session.data.title }}</h3>
-          <p>{{ session.data.location }}</p>
-          {% if session.data.description %}<p>{{ session.data.description }}</p>{% endif %}
-        </div>
-        <div class="session-book">
-          {% if session.data.booking_link %}
-            <a href="{{ session.data.booking_link }}" target="_blank" rel="noopener noreferrer">Book a place</a>
-          {% endif %}
-        </div>
+  @media (max-width: 900px) {
+    .hero-photo { height: 260px; }
+    .covers-grid { grid-template-columns: 1fr; }
+    .covers-grid .orange-rule { display: none; }
+    .covers-grid .headline-col { padding-right: 0; margin-bottom: 1.5rem; }
+    .covers-grid .body-col-1 { padding-right: 0; margin-bottom: 1.5rem; }
+    .covers-grid .body-col-2 { padding-left: 0; }
+    .triad-framing { grid-template-columns: 1fr; gap: 1.5rem; }
+    .triad-elements { grid-template-columns: 1fr; }
+    .triad-col-rule { display: none; }
+    .triad-col { padding: 0; margin-bottom: 2rem; }
+    .triad-col:last-child { margin-bottom: 0; }
+    .sessions-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>
+{% endblock %}
+
+<div class="s-hero">
+  <div class="wrap">
+    <p class="eyebrow-label">The Trust Triad Workshop</p>
+    <h1>Why buyers hesitate and <span class="orange">how to remove the friction.</span></h1>
+    <p class="hero-body">The Trust Triad Workshop is a structured, practical exploration of why buyers hesitate and what you can do about it. Not theory for its own sake. A framework you can apply to your own sales conversations immediately.</p>
+    <figure>
+      <div class="hero-photo">
+        <img src="/assets/images/EK4A9928.jpg" alt="Gerry Forristal presenting the Trust Triad workshop">
       </div>
-    {% endfor %}
-  {% else %}
-    <p class="sessions-empty">No upcoming public sessions at the moment. Get in touch to find out about future dates, or to bring the workshop to your team.</p>
-  {% endif %}
+      <figcaption class="photo-credit">Photography: <a href="https://www.MKJPhotography.co.uk" target="_blank" rel="noopener">www.MKJPhotography.co.uk</a></figcaption>
+    </figure>
+  </div>
 </div>
 
-<div class="page-cta">
-  <p>If you would like to bring the workshop to your organisation or find out about future sessions, get in touch.</p>
-  <a href="/contact/" class="btn btn--primary">Get in touch</a>
+<div class="s-covers">
+  <div class="wrap">
+    <div class="covers-grid">
+      <div class="headline-col">What the workshop covers</div>
+      <div class="body-col-1">
+        <p>In 2.5 hours, we work through why buyers hesitate, and why the reason is almost never what businesses assume.</p>
+        <p>The outside-in principle: what your buyer is actually experiencing during your sales process, and why it matters more than the structure you have built around it.</p>
+      </div>
+      <div class="orange-rule"></div>
+      <div class="body-col-2">
+        <p>The Trust Triad: the three elements that need to be present before a buyer feels safe to proceed. Qualification, credibility, and permission, and how they work together throughout a conversation rather than in sequence.</p>
+        <p>What changes when you design your process around how buyers actually think and make decisions, rather than around internal workflows and reporting structures.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-triad-intro">
+  <div class="wrap">
+    <div class="triad-framing">
+      <div class="section-headline">The Trust Triad</div>
+      <p>Through close to thirty years of working with founders and their teams, I have observed that successful sales conversations consistently share three elements. When any one is missing, buyers hesitate. When all three are present, the path to a decision becomes remarkably clear. They are not sequential steps. They work together throughout the conversation, each reinforcing the others.</p>
+    </div>
+  </div>
+</div>
+
+<div class="s-triad-elements">
+  <div class="wrap">
+    <div class="triad-elements">
+      <div class="triad-col">
+        <div class="triad-element-label">Qualification</div>
+        <p>Rigorous, mutual, and respectful. The goal is clarity for both parties: does genuine alignment exist between what the buyer needs and what you offer? Without that clarity, you risk investing time in conversations that were never going to move forward.</p>
+      </div>
+      <div class="triad-col-rule"></div>
+      <div class="triad-col">
+        <div class="triad-element-label">Credibility</div>
+        <p>Credibility in sales is not about credentials or case studies. It comes from demonstrating that you understand the buyer&#8217;s reality as they are experiencing it. When a buyer senses that you genuinely grasp their situation, not in a general sense but specifically, they feel safe. And when they feel safe, they open up.</p>
+      </div>
+      <div class="triad-col-rule"></div>
+      <div class="triad-col">
+        <div class="triad-element-label">Permission</div>
+        <p>Buyers resist when they feel their freedom to choose is being limited. They commit more readily when they feel they have made decisions freely. Permission manifests as small check-ins throughout the conversation that confirm the buyer is comfortable and ready to proceed. The cumulative effect is significant: the buyer feels respected, in control, and part of the process rather than subject to it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-sessions">
+  <div class="wrap">
+    <div class="sessions-grid">
+      <div class="headline-col">Upcoming sessions</div>
+      <div class="sessions-body">
+        {% if collections.sessions.length > 0 %}
+          {% for session in collections.sessions %}
+          <div class="session-card">
+            <p class="session-date">{{ session.data.date | formatDate }}</p>
+            <p class="session-title">{{ session.data.title }}</p>
+            <p class="session-location">{{ session.data.location }}</p>
+            {% if session.data.booking_link %}
+            <a href="{{ session.data.booking_link }}" class="session-link" target="_blank" rel="noopener">Book via Eventbrite &#8599;</a>
+            {% endif %}
+          </div>
+          {% endfor %}
+        {% else %}
+          <p class="sessions-empty">No upcoming sessions at the moment. Get in touch to find out about future dates, or to discuss bringing the workshop to your team.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-cta">
+  <div class="wrap">
+    <p class="cta-h2">If you would like to bring the workshop to your organisation or find out about future sessions, get in touch.</p>
+    <a href="/contact/" class="btn">Get in touch</a>
+  </div>
 </div>

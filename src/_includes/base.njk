@@ -1,54 +1,204 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} | Gerry Forristal{% else %}Gerry Forristal | Buyer Behaviour &amp; Sales Process Design{% endif %}</title>
+  <meta name="color-scheme" content="only light">
+  <title>{% if isHome %}Gerry Forristal &#8212; Buyer Behaviour &amp; Sales Process Design{% elif title %}{{ title }} | Gerry Forristal{% else %}Gerry Forristal{% endif %}</title>
   <meta name="description" content="{{ description or 'Gerry Forristal — buyer behaviour and sales process design consultant, Edinburgh.' }}">
   <link rel="icon" href="/assets/images/g-logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <!-- Cloudflare Web Analytics: replace YOUR_TOKEN below once Cloudflare Pages is connected -->
-  <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { color-scheme: only light; }
+
+    html, body {
+      font-size: 18px;
+      background: rgb(255,255,255);
+      color: #1a1a1a;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      color-scheme: only light;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+
+    /* NAV — shared */
+    .s-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgb(255,255,255);
+      border-bottom: 0.5px solid #e8e8e8;
+    }
+
+    /* HOMEPAGE NAV — centered links, no G mark */
+    .s-nav--home .wrap {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+    }
+    .s-nav--home a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #777777;
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .s-nav--home a:hover { color: #1a1a1a; }
+    .s-nav--home a.active { color: #E8601C; }
+
+    /* INNER PAGE NAV — G mark left, links right */
+    .s-nav--inner .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-gmark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: block;
+    }
+    .nav-gmark img { width: 40px; height: 40px; display: block; }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #777777;
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover { color: #1a1a1a; }
+    .nav-links a.active { color: #E8601C; }
+
+    /* SHARED BUTTON */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgb(255,255,255);
+      background: #E8601C;
+      padding: 0.8rem 1.85rem;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* PHOTO CREDIT */
+    .photo-credit {
+      font-size: 0.85rem;
+      color: #777777;
+      margin-top: 0.6rem;
+      font-weight: 300;
+    }
+    .photo-credit a { color: #777777; text-decoration: none; }
+    .photo-credit a:hover { color: #1a1a1a; }
+
+    /* FOOTER */
+    .s-footer {
+      background: rgb(255,255,255);
+      border-top: 0.5px solid #e8e8e8;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .s-footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .s-footer p, .footer-links {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: #777777;
+      font-weight: 300;
+    }
+    .footer-links { display: flex; gap: 2rem; }
+    .s-footer a { color: #777777; text-decoration: none; }
+    .s-footer a:hover { color: #1a1a1a; }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+      /* Homepage nav mobile: already centered, just wrap */
+      .s-nav--home .wrap { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .s-nav--home a { font-size: 0.8rem; }
+
+      /* Inner nav mobile: drop G mark, center links */
+      .s-nav--inner .wrap { height: auto; padding-top: 0.75rem; padding-bottom: 0.75rem; justify-content: center; }
+      .nav-gmark { display: none; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      .nav-links a { font-size: 0.8rem; }
+
+      .s-footer .wrap { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
+  {% block pageStyles %}{% endblock %}
 </head>
 <body>
 
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="/" class="nav-brand" aria-label="Gerry Forristal — home">
-        <img src="/assets/images/g-logo.svg" alt="" width="36" height="36" aria-hidden="true">
-        <img src="/assets/images/wordmark.png" alt="Gerry Forristal" class="nav-wordmark-img">
-      </a>
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} aria-current="page"{% endif %}>Why Buyers Hesitate</a></li>
-        <li><a href="/workshop/"{% if page.url == "/workshop/" %} aria-current="page"{% endif %}>The Workshop</a></li>
-        <li><a href="/working-with-me/"{% if page.url == "/working-with-me/" %} aria-current="page"{% endif %}>Working With Me</a></li>
-        <li><a href="/speaking/"{% if page.url == "/speaking/" %} aria-current="page"{% endif %}>Book Me to Speak</a></li>
-        <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
-        <li><a href="/contact/"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-
-  <main id="main-content">
-    {{ content | safe }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span class="footer-copy">&copy; 2026 Gerry Forristal</span>
-      <a href="https://www.linkedin.com/in/gerryforristal/" class="footer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="/privacy/" class="footer-privacy">Privacy Policy</a>
+  {% if isHome %}
+  <div class="s-nav s-nav--home">
+    <div class="wrap">
+      <a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} class="active"{% endif %}>Why Buyers Hesitate</a>
+      <a href="/workshop/"{% if page.url == "/workshop/" %} class="active"{% endif %}>The Workshop</a>
+      <a href="/working-with-me/"{% if page.url == "/working-with-me/" %} class="active"{% endif %}>Working With Me</a>
+      <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
+      <a href="/about/"{% if page.url == "/about/" %} class="active"{% endif %}>About</a>
+      <a href="/contact/"{% if page.url == "/contact/" %} class="active"{% endif %}>Contact</a>
     </div>
-  </footer>
+  </div>
+  {% else %}
+  <nav class="s-nav s-nav--inner">
+    <div class="wrap">
+      <a href="/" class="nav-gmark">
+        <img src="/assets/images/g-logo.svg" alt="Gerry Forristal">
+      </a>
+      <div class="nav-links">
+        <a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} class="active"{% endif %}>Why Buyers Hesitate</a>
+        <a href="/workshop/"{% if page.url == "/workshop/" %} class="active"{% endif %}>The Workshop</a>
+        <a href="/working-with-me/"{% if page.url == "/working-with-me/" %} class="active"{% endif %}>Working With Me</a>
+        <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
+        <a href="/about/"{% if page.url == "/about/" %} class="active"{% endif %}>About</a>
+        <a href="/contact/"{% if page.url == "/contact/" %} class="active"{% endif %}>Contact</a>
+      </div>
+    </div>
+  </nav>
+  {% endif %}
 
-  <script src="/assets/js/main.js"></script>
+  {{ content | safe }}
+
+  <div class="s-footer">
+    <div class="wrap">
+      <p>&#169; 2026 Gerry Forristal</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/gerryforristal/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  {% block scripts %}{% endblock %}
+
+  <!-- Cloudflare Web Analytics -->
+  <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
+
 </body>
 </html>
