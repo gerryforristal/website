@@ -16,8 +16,7 @@ backend:
   name: github
   repo: gerryforristal/website
   branch: main
-  auth_type: pkce
-  app_id: Ov23liOKW2jV7n5KphTd
+  base_url: https://gerryforristal.co.uk
 
 media_folder: src/assets/images/uploads
 public_folder: /assets/images/uploads
