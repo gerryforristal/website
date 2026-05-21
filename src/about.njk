@@ -1,123 +1,175 @@
 ---
-title: About
-description: Close to thirty years of working with founders and their teams. Buyer behaviour and sales process design consultant based in Edinburgh.
+title: Home
+description: Gerry Forristal helps founders of established businesses understand why buyers hesitate, and redesign their sales processes so buying feels safe again.
 layout: base.njk
-permalink: /about/
+isHome: true
+permalink: /
 ---
 
 {% block pageStyles %}
 <style>
-  /* HERO — photo left, H1 right */
-  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 0; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .hero-photo-col { display: flex; flex-direction: column; }
-  .hero-photo-crop { width: 100%; height: 520px; overflow: hidden; }
-  .hero-photo-crop img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .hero-text-col { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 0.5rem; }
-  .hero-text-col h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 5.5vw, 5rem); font-weight: 400; font-style: italic; line-height: 1.1; color: #1a1a1a; }
-  .hero-text-col h1 span.orange { color: #E8601C; }
+  /* HERO */
+  .s-hero { background: rgb(255,255,255); padding-top: 4rem; padding-bottom: 3.5rem; }
 
-  /* BODY — two columns, orange rule */
-  .s-body { background: rgb(255,255,255); padding-top: 3rem; padding-bottom: 3.5rem; }
-  .body-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: start; }
-  .body-col-left { padding-right: 3rem; }
-  .body-col-right { padding-left: 3rem; }
-  .orange-rule { background: #E8601C; opacity: 0.4; align-self: stretch; }
-  .body-grid p { font-size: 1rem; line-height: 1.85; color: #444444; margin-bottom: 1.1rem; }
-  .body-grid p:last-child { margin-bottom: 0; }
+  .identity-block { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .g-mark { width: 108px; height: 108px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .g-mark img { width: 108px; height: 108px; display: block; }
+  .eyebrow { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 300; color: #E8601C; line-height: 1.4; }
 
-  /* RESEARCH — light blue */
-  .s-research { background: #f2f8ff; padding-top: 3.5rem; padding-bottom: 3.5rem; }
-  .grid-hl-left { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; }
-  .section-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: #1a1a1a; line-height: 1.25; }
-  .body-col p { font-size: 1rem; line-height: 1.85; color: #444444; margin-bottom: 1.1rem; }
-  .body-col p:last-child { margin-bottom: 0; }
+  .s-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.15;
+    color: #1a1a1a;
+  }
+  .s-hero h1 span.orange { color: #E8601C; }
 
-  /* FRAMEWORKS — orange */
-  .s-frameworks { background: #E8601C; padding-top: 3.5rem; padding-bottom: 3.5rem; }
-  .frameworks-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-style: italic; font-weight: 400; color: rgb(255,255,255); line-height: 1.25; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 0.5px solid rgba(255,255,255,0.25); }
-  .frameworks-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .frameworks-body p { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.85); }
+  /* SPLIT PANEL */
+  .s-split { background: rgb(255,255,255); }
+  .s-split .wrap { display: grid; grid-template-columns: 1fr 1fr; }
+  .split-left { padding: 4rem 3rem 4rem 0; background: rgb(255,255,255); display: flex; align-items: center; }
+  .split-right { background: #f2f8ff; padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .split-left p { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.75; color: #1a1a1a; font-weight: 400; }
+  .split-right p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2vw, 1.65rem); font-weight: 400; line-height: 1.55; color: #1a1a1a; margin-bottom: 2rem; }
 
-  /* CTA */
-  .s-cta { background: #f2f8ff; border-top: 0.5px solid #ddeaf8; padding-top: 3.5rem; padding-bottom: 4.5rem; }
-  .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 400; font-style: normal; line-height: 1.3; color: #1a1a1a; margin-bottom: 1.75rem; max-width: 620px; }
+  /* PHOTO */
+  .s-photo { background: rgb(255,255,255); padding-top: 3.5rem; padding-bottom: 1.5rem; }
+  .photo-crop { width: 100%; height: 360px; overflow: hidden; }
+  .photo-crop img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+
+  /* OUTSIDE-IN */
+  .s-outside-in { background: rgb(255,255,255); padding-top: 2rem; padding-bottom: 2rem; }
+  .outside-in-grid { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start; }
+  .label { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; color: #E8601C; line-height: 1.4; padding-top: 0.5rem; }
+  .s-outside-in blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3vw, 2.7rem); font-style: italic; font-weight: 400; line-height: 1.35; color: #1a1a1a; border: none; padding: 0; margin-bottom: 1.5rem; }
+  .s-outside-in p { font-size: 1rem; line-height: 1.8; color: #444444; max-width: 640px; }
+
+  /* OUTCOMES + CTA */
+  .s-outcomes-cta { background: #f2f8ff; padding-top: 3rem; padding-bottom: 5rem; }
+  .outcomes-grid-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; margin-bottom: 2rem; }
+  .outcomes-label { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; color: #E8601C; padding-top: 0.25rem; }
+  .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+  .outcome-statement { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; font-weight: 400; line-height: 1.45; color: #1a1a1a; margin-bottom: 0.85rem; }
+  .outcome-detail { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; line-height: 1.7; color: #444444; }
+  .cta-rule { border: none; border-top: 0.5px solid #ddeaf8; margin-bottom: 2rem; }
+  .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.3; color: #1a1a1a; margin-bottom: 1.25rem; max-width: 680px; }
+  .cta-body { font-size: 1.05rem; line-height: 1.8; color: #444444; margin-bottom: 2rem; max-width: 580px; }
+
+  /* TESTIMONIALS */
+  .s-testimonials { background: #E8601C; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .testimonials-label { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .testimonial-card blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.6; color: rgb(255,255,255); margin-bottom: 1rem; border: none; padding: 0; }
+  .testimonial-card cite { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.75); font-style: normal; }
 
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-photo-crop { height: 360px; }
-    .body-grid { grid-template-columns: 1fr; }
-    .orange-rule { display: none; }
-    .body-col-left { padding-right: 0; margin-bottom: 1.5rem; }
-    .body-col-right { padding-left: 0; }
-    .grid-hl-left { grid-template-columns: 1fr; gap: 1.5rem; }
-    .frameworks-body { grid-template-columns: 1fr; gap: 1.5rem; }
-    .s-hero { padding-top: 2.5rem; }
-    .s-body { padding-top: 2rem; padding-bottom: 2rem; }
-    .s-research { padding-top: 2rem; padding-bottom: 2rem; }
-    .s-frameworks { padding-top: 2rem; padding-bottom: 2rem; }
-    .s-cta { padding-top: 2rem; padding-bottom: 3rem; }
+    .s-split .wrap { grid-template-columns: 1fr; }
+    .split-left { padding: 3rem 0; }
+    .split-right { padding: 3rem 1.5rem; }
+    .outside-in-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .outcomes-grid-wrap { grid-template-columns: 1fr; gap: 0; }
+    .outcomes-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .photo-crop { height: 260px; }
+    .identity-block { flex-direction: column; align-items: center; gap: 0.75rem; }
+    .g-mark { width: 72px; height: 72px; }
+    .g-mark img { width: 72px; height: 72px; }
+    .eyebrow { font-size: 0.9rem; text-align: center; }
+    .s-hero { padding-top: 2.5rem; padding-bottom: 2rem; }
+    .s-photo { padding-top: 2rem; }
+    .s-outcomes-cta { padding-top: 2rem; padding-bottom: 3rem; }
+    .s-testimonials { padding-top: 2rem; padding-bottom: 2rem; }
   }
 </style>
 {% endblock %}
 
 <div class="s-hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-photo-col">
-        <figure>
-          <div class="hero-photo-crop">
-            <img src="/assets/images/EK4A9994.jpg" alt="Gerry Forristal">
-          </div>
-          <figcaption class="photo-credit">Photography: <a href="https://www.MKJPhotography.co.uk" target="_blank" rel="noopener">www.MKJPhotography.co.uk</a></figcaption>
-        </figure>
+    <div class="identity-block">
+      <div class="g-mark">
+        <img src="/assets/images/g-logo.svg" alt="Gerry Forristal">
       </div>
-      <div class="hero-text-col">
-        <h1>Close to thirty years of working with <span class="orange">founders and their teams.</span></h1>
+      <p class="eyebrow">sales process design grounded in buyer behaviour &amp; decision science</p>
+    </div>
+    <h1>Your sales process is built around your business. <span class="orange">Your buyer is responding to something else entirely.</span></h1>
+  </div>
+</div>
+
+<div class="s-split">
+  <div class="wrap">
+    <div class="split-left">
+      <p>Conversations with prospective clients feel like they&#8217;re heading somewhere, and then simply stop. Proposals go into silence. Or a prospective client who seemed engaged re-emerges with criteria that weren&#8217;t part of the original conversation, and you still don&#8217;t know what you&#8217;re actually being measured against.</p>
+    </div>
+    <div class="split-right">
+      <p>I work with founders of established businesses to understand why their buyers hesitate, and then redesign their sales processes so buying feels safe again.</p>
+      <a href="/working-with-me/" class="btn">Where it starts</a>
+    </div>
+  </div>
+</div>
+
+<div class="s-photo">
+  <div class="wrap">
+    <figure>
+      <div class="photo-crop">
+        <img src="/assets/images/EK4A9962.jpg" alt="Gerry Forristal presenting When Do People Buy?">
+      </div>
+      <figcaption class="photo-credit">Photography: <a href="https://www.MKJPhotography.co.uk" target="_blank" rel="noopener">www.MKJPhotography.co.uk</a></figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="s-outside-in">
+  <div class="wrap">
+    <div class="outside-in-grid">
+      <div class="label">The outside-in principle</div>
+      <div>
+        <blockquote>Before a buyer speaks to you, they are already deciding whether to trust you.</blockquote>
+        <p>Most sales processes are built around internal logic: stages, pipeline metrics, conversion targets. The buyer isn&#8217;t part of that design. They arrive into a process that wasn&#8217;t built for them, and they feel it before the first conversation has even begun.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="s-body">
+<div class="s-outcomes-cta">
   <div class="wrap">
-    <div class="body-grid">
-      <div class="body-col-left">
-        <p>I have spent close to thirty years working with founders and leadership teams across sectors and stages. The work has always been the same at its core: understanding what is happening on the buyer&#8217;s side of the conversation, and helping businesses design their sales processes around that reality.</p>
-      </div>
-      <div class="orange-rule"></div>
-      <div class="body-col-right">
-        <p>What has changed over that time is the depth of the research base and the precision of the frameworks. The outside-in principle was an instinct early on. Now it is something I can explain, evidence, and apply systematically to any business that is ready to look at their sales process honestly.</p>
+    <div class="outcomes-grid-wrap">
+      <div class="outcomes-label">What becomes different</div>
+      <div class="outcomes-grid">
+        <div>
+          <p class="outcome-statement">Fewer conversations that go nowhere.</p>
+          <p class="outcome-detail">Because the process identifies poor fit earlier, before time is spent on both sides.</p>
+        </div>
+        <div>
+          <p class="outcome-statement">Clearer discussions about scope and intended spend, earlier.</p>
+          <p class="outcome-detail">Because the framework creates the conditions for honest conversations before assumptions have hardened.</p>
+        </div>
+        <div>
+          <p class="outcome-statement">Better-fit clients who stay longer.</p>
+          <p class="outcome-detail">Because when buying feels safe, the right clients commit with confidence rather than reluctance.</p>
+        </div>
       </div>
     </div>
+    <hr class="cta-rule">
+    <h2 class="cta-h2">It always starts here.</h2>
+    <p class="cta-body">A structured analysis of where your sales process is creating hesitation for buyers. Before anything is designed, we need to understand what is actually happening.</p>
+    <a href="/working-with-me/" class="btn">Where it starts</a>
   </div>
 </div>
 
-<div class="s-research">
+<div class="s-testimonials">
   <div class="wrap">
-    <div class="grid-hl-left">
-      <div class="section-headline">The research foundation</div>
-      <div class="body-col">
-        <p>The frameworks I use are informed by decades of published research across neuroscience, behavioural economics, decision science, and motivation theory. Antonio Damasio on emotional processing and decision-making. Daniel Kahneman on how people actually think under uncertainty. Research on autonomy, trust formation, and psychological safety.</p>
-        <p>This is not a collection of influences assembled for credibility. It is the foundation that explains why buyers behave the way they do, and why the processes businesses build around logic alone so often create the friction they were designed to avoid.</p>
+    <div class="testimonials-label">From clients</div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <blockquote>&#8220;Gerry&#8217;s workshop was so good, he will be sharing it with my team later in the year.&#8221;</blockquote>
+        <cite>Angela Cooper, Director, GYEON UK Ltd</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>&#8220;Gerry engaged with a wide range of team members to completely reimagine our sales process from the ground up, drawing on his unique understanding of buyer behaviour. His work led to a year-on-year enquiry conversion increase of over 32%, helping us achieve our best sales year to date.&#8221;</blockquote>
+        <cite>Martin Johnson, Director &amp; Co-Founder, Latin Routes</cite>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="s-frameworks">
-  <div class="wrap">
-    <div class="frameworks-headline">The frameworks</div>
-    <div class="frameworks-body">
-      <p>The Trust Triad and the PULSE+ Framework are the two proprietary frameworks through which this research gets applied to specific businesses. Neither is a template. Both are tools for understanding what is actually happening in a specific sales process and designing something better around it.</p>
-      <p>The Trust Triad addresses the three conditions buyers need before they feel safe to proceed. The PULSE+ Framework structures the sales process itself around how buyers actually think and make decisions, rather than around internal workflows and reporting stages.</p>
-    </div>
-  </div>
-</div>
-
-<div class="s-cta">
-  <div class="wrap">
-    <p class="cta-h2">If something here has made you think differently about your own process, the conversation starts here.</p>
-    <a href="/contact/" class="btn">Get in touch</a>
   </div>
 </div>
