@@ -137,18 +137,13 @@
     /* MOBILE */
     @media (max-width: 900px) {
       .wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
-
-      /* Homepage nav mobile: already centered, just wrap */
       .s-nav--home .wrap { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
       .s-nav--home a { font-size: 0.8rem; }
-
-      /* Inner nav mobile: drop G mark, center links */
       .s-nav--inner .wrap { height: auto; padding-top: 0.75rem; padding-bottom: 0.75rem; justify-content: space-between; align-items: center; }
       .nav-gmark { width: 32px; height: 32px; }
       .nav-gmark img { width: 32px; height: 32px; }
       .nav-links { gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end; }
       .nav-links a { font-size: 0.8rem; }
-
       .s-footer .wrap { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
   </style>
@@ -160,10 +155,10 @@
   <div class="s-nav s-nav--home">
     <div class="wrap">
       <a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} class="active"{% endif %}>Why Buyers Hesitate</a>
-      <a href="/workshop/"{% if page.url == "/workshop/" %} class="active"{% endif %}>The Workshop</a>
+      <a href="/when-do-people-buy/"{% if page.url == "/when-do-people-buy/" %} class="active"{% endif %}>When Do People Buy?</a>
       <a href="/working-with-me/"{% if page.url == "/working-with-me/" %} class="active"{% endif %}>Working With Me</a>
-      <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
       <a href="/about/"{% if page.url == "/about/" %} class="active"{% endif %}>About</a>
+      <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
       <a href="/contact/"{% if page.url == "/contact/" %} class="active"{% endif %}>Contact</a>
     </div>
   </div>
@@ -175,10 +170,10 @@
       </a>
       <div class="nav-links">
         <a href="/why-buyers-hesitate/"{% if page.url == "/why-buyers-hesitate/" %} class="active"{% endif %}>Why Buyers Hesitate</a>
-        <a href="/workshop/"{% if page.url == "/workshop/" %} class="active"{% endif %}>The Workshop</a>
+        <a href="/when-do-people-buy/"{% if page.url == "/when-do-people-buy/" %} class="active"{% endif %}>When Do People Buy?</a>
         <a href="/working-with-me/"{% if page.url == "/working-with-me/" %} class="active"{% endif %}>Working With Me</a>
-        <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
         <a href="/about/"{% if page.url == "/about/" %} class="active"{% endif %}>About</a>
+        <a href="/speaking/"{% if page.url == "/speaking/" %} class="active"{% endif %}>Book Me to Speak</a>
         <a href="/contact/"{% if page.url == "/contact/" %} class="active"{% endif %}>Contact</a>
       </div>
     </div>
@@ -198,9 +193,6 @@
   </div>
 
   {% block scripts %}{% endblock %}
-
-  <!-- Cloudflare Web Analytics -->
-  <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
 
 </body>
 </html>
